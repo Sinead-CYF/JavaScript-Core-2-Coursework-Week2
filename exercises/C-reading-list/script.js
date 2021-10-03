@@ -1,18 +1,21 @@
 function readingList(books) {
   const content = document.querySelector("#content");
   const header = document.createElement("h1");
-  header.innerHTML = "Books list";
+  header.innerHTML = "Book list";
   content.appendChild(header);
   const ul = document.createElement("ul");
   content.appendChild(ul);
 
-  
   for (let i = 0; i < books.length; i++) {
     let liEl = document.createElement("li");
     ul.appendChild(liEl);
     let para = document.createElement("p");
     liEl.appendChild(para);
     para.innerHTML = `${books[i].title} - ${books[i].author}`;
+    let images = document.createElement("img");
+    images.src = books[i].cover;
+    liEl.appendChild(images);
+
     if (books[i].alreadyRead === true) {
       liEl.style.backgroundColor = "green";
     } else {
@@ -25,18 +28,24 @@ const books = [
   {
     title: "The Design of Everyday Things",
     author: "Don Norman",
-    alreadyRead: false
+    alreadyRead: false,
+    cover:
+      "https://i.postimg.cc/RFnCcKN5/The-Design-of-Everyday-Things-Don-Norman.jpg",
   },
   {
     title: "The Most Human Human",
     author: "Brian Christian",
-    alreadyRead: true
+    alreadyRead: true,
+    cover:
+      "https://i.postimg.cc/4ykfwy9K/The-Most-Human-Human-Brian-Christian.jpg",
   },
   {
     title: "The Pragmatic Programmer",
     author: "Andrew Hunt",
-    alreadyRead: true
-  }
+    alreadyRead: true,
+    cover:
+      "https://i.postimg.cc/fycwPsc8/The-Pragmatic-Programmer-Andrew-Hunt.jpg",
+  },
 ];
 
 readingList(books);
