@@ -1,26 +1,31 @@
 function todoList(todos) {
   const content = document.querySelector("#content");
+  const heading = document.createElement("h1");
+  heading.style.color = "#4f92d4";
+  heading.textContent = "My To-Do List";
+  content.appendChild(heading);
   const ul = document.createElement("ul");
   content.appendChild(ul);
 
-  for (let i = 0; i < todos.length; i++){
+  for (let i = 0; i < todos.length; i++) {
     const liEl = document.createElement("li");
-    liEl.innerText = todos[i].todo;
+    liEl.innerHTML = todos[i].todo;
     ul.appendChild(liEl);
+    liEl.addEventListener("click", (str) => {
+      if (liEl.style.setProperty("text-decoration", "none")) {
+        liEl.style.setProperty("text-decoration", "line-through");
+      } else if (liEl.style.setProperty("text-decoration", "line-through")) {
+        liEl.style.setProperty("text-decoration", "none");
+      }
+    });
   }
-
-  liEl.addEventListener()
 }
 
-// alterty.addEventListener("click", function (str) {
-//   alert("Hello World!")
-//  })
-
 const todos = [
-  {todo: "wash the dishes"}, 
-  {todo: "walk the dog"}, 
-  {todo: "learn javascript"}, 
-  {todo: "go shopping"}
+  { todo: "wash the dishes" },
+  { todo: "walk the dog" },
+  { todo: "learn javascript" },
+  { todo: "go shopping" },
 ];
 
 todoList(todos);
@@ -30,7 +35,7 @@ We want to render a list of todos on the page. DONE
 
 When we click on an item 
 we want a line-through style to be added to it to show that the todo has 
-been completed. 
+been completed. DONE 
 
 If we decide we haven't actually finished the todo yet, 
 then we should be able to click it again to remove the line-through styling.
