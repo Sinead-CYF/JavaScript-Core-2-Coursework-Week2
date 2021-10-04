@@ -13,14 +13,15 @@ function listOfColours(colours) {
     let optionEl = document.createElement("option");
     selectList.appendChild(optionEl);
     optionEl.innerText = colours[i];
+    optionEl.setAttribute("value", colours[i]);
   }
 
-  if (optionEl[i].selected.value === "red"){ 
-   optionEl.style.color = "red";
+  if (selectList.value === "red") {
+    optionEl.style.color = "red";
   }
 }
 
-//Can't figure out how to change the colours upon selection. 
+//Can't figure out how to change the colours upon selection.
 
 // if (optionEl.selected && optionEl.innerText === "red"){
 //   optionEl.style.color = "red";

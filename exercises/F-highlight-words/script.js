@@ -1,5 +1,36 @@
 function highlightWords(paragraph, colours) {
-  // Write your code here...
+  const content = document.querySelector("#content");
+  const heading = document.createElement("h1");
+  heading.textContent = "Highlight the Paragraph";
+  content.appendChild(heading);
+  const para = document.createElement("p");
+  content.appendChild(para);
+  const selectList = document.createElement("select");
+  content.appendChild(selectList);
+  colours.unshift("Select a colour");
+
+  for (let i = 0; i < colours.length; i++) {
+    let optionEl = document.createElement("option");
+    selectList.appendChild(optionEl);
+    optionEl.innerText = colours[i];
+    optionEl.setAttribute("value", colours[i]);
+  }
+
+  const splitPara = paragraph.split(" ");
+
+  for (let i = 0; i < splitPara.length; i++) {
+    const spanEl = document.createElement("span");
+    spanEl.innerText = `${splitPara[i]} `;
+    para.appendChild(spanEl);
+  }
+
+  const spanEls = document.getElementsByTagName("span");
+
+  for (let i = 0; i < spanEls.length; i++) {
+    spanEls[i].addEventListener("click", (tag) => {
+      //Need to check the selected values
+    });
+  }
 }
 
 const paragraph =
@@ -8,3 +39,41 @@ const paragraph =
 const colours = ["yellow", "green", "blue", "none"];
 
 highlightWords(paragraph, colours);
+
+/*
+```
+
+We want to render the paragraph on the page, DONE 
+along with a dropdown with the different colour options in it. DONE 
+When we click on a word in the paragraph we want to highlight it 
+with the colour selected in the dropdown. If 'none' is selected in 
+the dropdown, then no highlighting should be applied to the words, 
+or highlighting should be removed if the clicked word is already highlighted.
+
+## Exercise
+
+- Create a `<p>` element. DONE 
+- Create a `<select>` element. DONE 
+- Iterate over the options array and create an `<option>` element in the `<select>` 
+  for each element. DONE 
+- You'll need to turn the paragraph into an array to iterate over it. 
+  You can use the `.split(" ")` method here. DONE 
+- Iterate over the array of words. DONE 
+
+- For each word, create a `<span>` element DONE 
+  and set the innerText to the word, plus a space - " ". DONE
+  
+  Add this to the `<p>`.  DONE 
+
+- Each `<span>` should have an eventListener that will listen for clicks. DONE 
+
+- When clicked, we need to check the value of the `<select>` 
+  element using the `.value` property.
+
+- We can then update the `background-color` property of the `<span>` 
+  with the value of the select - 
+
+  remember that the value "none" is a special case and we need to be handled differently.
+- All of your HTML should go inside the `<div>` with the id **"content"**.
+
+*/
