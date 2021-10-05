@@ -13,8 +13,13 @@ body {
 }
 
 h1 {
-  margin-left: 35rem;
+  margin-left: 34rem;
 }
+
+ p {
+   margin-left: 23rem;
+   font-size: 3rem;
+ }
 
 select {
   margin-left: 12rem;

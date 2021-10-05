@@ -26,11 +26,15 @@ function highlightWords(paragraph, colours) {
 
   const spanEls = document.getElementsByTagName("span");
 
-  for (let i = 0; i < spanEls.length; i++) {
-    spanEls[i].addEventListener("click", (tag) => {
-      //Need to check the selected values
-    });
-  }
+  spanEls.addEventListener("click", () => {
+    for (let i = 0; i < spanEls.length; i++) {
+      if (selectList.value === "none") {
+        spanEls.style.backgroundColor = "transparent";
+      } else {
+        spanEls.style.backgroundColor = selectList.value;
+      }
+    }
+  });
 }
 
 const paragraph =
@@ -41,10 +45,10 @@ const colours = ["yellow", "green", "blue", "none"];
 highlightWords(paragraph, colours);
 
 /*
-```
 
 We want to render the paragraph on the page, DONE 
 along with a dropdown with the different colour options in it. DONE 
+
 When we click on a word in the paragraph we want to highlight it 
 with the colour selected in the dropdown. If 'none' is selected in 
 the dropdown, then no highlighting should be applied to the words, 

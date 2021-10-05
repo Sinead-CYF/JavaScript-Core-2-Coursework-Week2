@@ -5,9 +5,9 @@ function listOfColours(colours) {
   content.appendChild(heading);
   let selectList = document.createElement("select");
   content.appendChild(selectList);
-  // const optionName = document.createElement("option");
-  // selectList.appendChild(optionName);
-  // optionName.innerText("Pick a Colour");
+  const para = document.createElement("p");
+  content.appendChild(para);
+
 
   for (let i = 0; i < colours.length; i++) {
     let optionEl = document.createElement("option");
@@ -16,18 +16,11 @@ function listOfColours(colours) {
     optionEl.setAttribute("value", colours[i]);
   }
 
-  if (selectList.value === "red") {
-    optionEl.style.color = "red";
-  }
+  selectList.addEventListener("click", (event) => {
+    para.textContent = "You have selected: " + event.target.value;
+    para.style.color = event.target.value;
+  });
 }
-
-//Can't figure out how to change the colours upon selection.
-
-// if (optionEl.selected && optionEl.innerText === "red"){
-//   optionEl.style.color = "red";
-// }
-
-// .selectedIndex = "2";
 
 const colours = ["red", "blue", "green", "yellow", "pink", "brown"];
 colours.unshift("Choose a colour");
@@ -35,6 +28,7 @@ colours.unshift("Choose a colour");
 listOfColours(colours);
 
 /*
+
 # List of colours
 
 The function **listOfColours** takes an array of colour strings:
@@ -55,7 +49,8 @@ to match the selected colour e.g.
 * Iterate through the array of colours.
 * Each element in the array should add a `<option>` to the `<select>`, 
   where the `<option>` is the element in the array.
-* Each `<option>` should have a 'click' event listener to update the contents and colour of the `<p>` with the selected colour.
+* Each `<option>` should have a 'click' event listener to update the contents and colour 
+  of the `<p>` with the selected colour.
 * All of your HTML should go inside the `<div>` with the id **"content"**.
 
 */

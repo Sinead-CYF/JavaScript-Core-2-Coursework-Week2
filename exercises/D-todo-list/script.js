@@ -11,11 +11,11 @@ function todoList(todos) {
     const liEl = document.createElement("li");
     liEl.innerHTML = todos[i].todo;
     ul.appendChild(liEl);
-    liEl.addEventListener("click", (str) => {
-      if (liEl.style.setProperty("text-decoration", "none")) {
-        liEl.style.setProperty("text-decoration", "line-through");
-      } else if (liEl.style.setProperty("text-decoration", "line-through")) {
-        liEl.style.setProperty("text-decoration", "none");
+    liEl.addEventListener("click", () => {
+      if (liEl.style.textDecoration === "line-through") {
+        liEl.style.removeProperty("text-decoration");
+      } else {
+        liEl.style.textDecoration = "line-through";
       }
     });
   }

@@ -22,20 +22,6 @@ let people = [
 listOfNames(people);
 
 
-// function listOfNames (people) {
-//   let content = document.querySelector("#content");
-
-//   return arrayOfPeople.forEach((person) => {
-//     var h1El = document.createElement("h1");
-//     h1El.innerHTML = people.name;
-//     content.appendChild(h1El);
-//     var h2El = document.createElement("h2");
-//     h2El.innerHTML = people.job;
-//     content.appendChild(h2E1);
-//   });
-// }
-
-
 /*## Exercise
 
 For each object in the array:
